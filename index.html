@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+
+  <title>IP-Composer</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">IP-Composer: Semantic Composition Of Visual Concepts</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/teaser.jpg" width="100%"/>
+      <h2 class="subtitle has-text-centered">
+        IP-Composer enables compositional generation from a set of visual concepts. These are portrayed through a set of input images, along with a prompt
+        describing the desired concept to be extracted from each.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Content creators often draw inspiration from multiple visual sources, combining distinct elements to craft new compositions. Modern computational approaches now aim to emulate this fundamental creative process. Although recent diffusion models excel at text-guided compositional synthesis, text as a medium often lacks precise control over visual details. Image-based composition approaches can capture more nuanced features, but existing methods are typically limited in the range of concepts they can capture, and require expensive training procedures or specialized data. We present IP-Composer, a novel training-free approach for compositional image generation that leverages multiple image references simultaneously, while using natural language to describe the concept to be extracted from each image. 
+            Our method builds on IP-Adapter, which synthesizes novel images conditioned on an input image's CLIP embedding. We extend this approach to multiple visual inputs by crafting composite embeddings, stitched from the projections of multiple input images onto concept-specific CLIP-subspaces identified through text. Through comprehensive evaluation, we show that our approach enables more precise control over a larger range of visual concept compositions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Image carousel -->
+<section class="hero">
+  <div class="hero-body is-four-fifths">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Image Composition Examples <br> with IP-Composer</h2>
+      <div id="results-carousel" class="carousel results-carousel" style="max-width: 70%; margin: 0 auto;">
+       <div class="item">
+        <!-- Your image here -->
+        <div class="is-centered">
+          <img src="static/images/first_1.JPG" alt=""/>
+        </div>
+        <!-- <h2 class="subtitle has-text-centered">
+          First image description.
+        </h2> -->
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/first_2.JPG" alt=""/>
+        <!-- <h2 class="subtitle has-text-centered">
+          Second image description.
+        </h2> -->
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/first_3.JPG" alt=""/>
+        <!-- <h2 class="subtitle has-text-centered">
+         Third image description.
+       </h2> -->
+     </div>
+     <div class="item">
+      <!-- Your image here -->
+      <img src="static/images/first_4.JPG" alt=""/>
+      <!-- <h2 class="subtitle has-text-centered">
+        Fourth image description.
+      </h2> -->
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+
+
+<!-- Youtube video -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <!-- Paper video. -->
+      <h2 class="title is-3 has-text-centered">How Does it Work?</h2>
+      <div class="columns is-centered ">
+        <div class="column is-four-fifths">
+            <img src="static/images/overview.jpg" width="100%" style="margin-bottom: 30px;"/>
+            <h2 class="subtitle">
+              <ul style="list-style: none; padding-left: 0; line-height: 1.8; font-size: 1.1em;">
+                <li style="margin-bottom: 15px;">
+                  🔗 <strong>Concept Extraction:</strong> We use an LLM to generate texts describing possible variations of a concept we want to extract from the concept-image. We encode the responses using CLIP and find the embedding subspace that they span.
+                </li>
+                <li style="margin-bottom: 15px;">
+                  🔗 <strong>Embedding Composition:</strong> We generate a composite CLIP-embedding by replacing the projection of the reference image on this embedding subspace with the matching projection of the concept image.
+                </li>
+                <li style="margin-bottom: 15px;">
+                  🔗 <strong>Image Generation:</strong> The composite embedding can be used by an off-the-shelf IP-Adapter to generate images combining the reference and the visual concept. The same approach can be applied with additional concept images.
+                </li>
+              </ul>
+            </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End youtube video -->
+
+
+<!-- Video carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Some More Examples</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <!-- Your image here -->
+          <img src="static/images/second_1.JPG" alt=""/>
+          <!-- <h2 class="subtitle has-text-centered">
+            First image description.
+          </h2> -->
+        </div>
+        <div class="item">
+          <!-- Your image here -->
+          <img src="static/images/second_2.JPG" alt=""/>
+          <!-- <h2 class="subtitle has-text-centered">
+            First image description.
+          </h2> -->
+        </div>
+        <div class="item">
+          <!-- Your image here -->
+          <img src="static/images/second_3.JPG" alt=""/>
+          <!-- <h2 class="subtitle has-text-centered">
+            First image description.
+          </h2> -->
+        </div>
+        <div class="item">
+          <!-- Your image here -->
+          <img src="static/images/second_4.JPG" alt=""/>
+          <!-- <h2 class="subtitle has-text-centered">
+            First image description.
+          </h2> -->
+        </div>
+        <div class="item">
+          <!-- Your image here -->
+          <img src="static/images/second_5.JPG" alt=""/>
+          <!-- <h2 class="subtitle has-text-centered">
+            First image description.
+          </h2> -->
+        </div>
+        <div class="item">
+          <!-- Your image here -->
+          <img src="static/images/second_6.JPG" alt=""/>
+          <!-- <h2 class="subtitle has-text-centered">
+            First image description.
+          </h2> -->
+        </div>
+      </div>
+      <div class="columns is-centered ">
+        <div class="column is-four-fifths">
+            <h2 class="title is-3 has-text-centered" style="margin-top: 100px;">Text Prompt Integration</h2>
+            <h2 class="has-text-centered is-size-5" style="margin-bottom: 30px;">In addition to image prompts, our method is also able to integrate text prompts, leveraging IP-Adapter’s built-in support for
+              text conditioning.</h2>
+            <img src="static/images/text.jpg" width="100%" style="margin-bottom: 30px;"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+  </html>
